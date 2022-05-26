@@ -61,7 +61,7 @@ public class Teacher {
         for (int i = 0; i < students.size(); i++) {
             for (int j = 0; j <students.get(i).getSubject().size() ; j++) {
                 if (subject.equals(students.get(i).getSubject())) {
-                    System.out.println("name is: " + students.get(i).getName());
+                    System.out.println("name is: " + students.get(i).getName().toString());
                 }
             }
         }
@@ -74,5 +74,14 @@ public class Teacher {
                 }
             }
         }
+    }
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "name='" + name + '\'' +
+                ", surName='" + surName + '\'' +
+                ", students=" + students +
+                ", forDeductions=" + forDeductions +
+                '}';
     }
 }

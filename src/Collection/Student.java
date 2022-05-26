@@ -108,4 +108,20 @@ public class Student {
     public void setHomeWork(boolean homeWork) {
         this.isHomeWork = homeWork;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", surName='" + surName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", age=" + age +
+                ", course=" + course +
+                ", ratings=" + ratings +
+                ", subject=" + subject +
+                ", zachet=" + zachet +
+                ", exam=" + exam +
+                ", isHomeWork=" + isHomeWork +
+                '}';
+    }
 }
