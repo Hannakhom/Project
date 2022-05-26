@@ -22,9 +22,11 @@ public class Run {
 
         Teacher teacher = new Teacher("Svetlana","Orlova",List.of(student1,student2,student3,student4));
 
-        teacher.printAllName();
+//        teacher.printAllName();
 
         teacher.studentSubject("Biology");
+        System.out.println();
         teacher.studentSubjectZachet("Chemistry");
+        System.out.println();
     }
 }

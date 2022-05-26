@@ -60,8 +60,8 @@ public class Teacher {
     public void studentSubject(String subject){
         for (int i = 0; i < students.size(); i++) {
             for (int j = 0; j <students.get(i).getSubject().size() ; j++) {
-                if (subject.equals(students.get(i).getSubject())) {
-                    System.out.println("name is: " + students.get(i).getName().toString());
+                if (students.get(i).getSubject().toString().equals(subject)) {
+                    System.out.println("name is: " + students.get(i).getName());
                 }
             }
         }
@@ -69,7 +69,7 @@ public class Teacher {
     public  void studentSubjectZachet(String zachet){
         for (int i = 0; i < students.size(); i++) {
             for (int j = 0; j <students.get(i).getZachet().size(); j++) {
-                if (zachet.equals(students.get(i).getZachet())){
+                if (students.get(i).getZachet().toString().equals(zachet)){
                     System.out.println("name is: " + students.get(i).getName());
                 }
             }
