@@ -1,3 +1,5 @@
+import com.beust.ah.A;
+import dev.failsafe.internal.util.Assert;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -6,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 import java.time.Duration;
+import java.util.List;
 
 public class Main {
 
@@ -24,8 +27,12 @@ public class Main {
         actions.moveToElement(action).click().build().perform();
         WebElement newReleases = driver.findElement(By.xpath("//div[contains(text(),'Популярные новинки')]"));
         actions.moveToElement(newReleases).click().build().perform();
-
-
+        WebElement buttonAllNewGames = driver.findElement(By.xpath("//span[contains(text(),'Все новинки')]"));
+        actions.moveToElement(buttonAllNewGames).click().build().perform();
+        WebElement buttonSortBy = driver.findElement(By.xpath("//a[@id='sort_by_trigger']"));
+        actions.moveToElement(buttonSortBy).click().build().perform();
+        WebElement sortByPrice = driver.findElement(By.xpath("//a[@id='Price_DESC']"));
+        actions.moveToElement(sortByPrice).click().build().perform();
 
     }
 
