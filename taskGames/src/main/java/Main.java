@@ -36,6 +36,8 @@ public class Main {
         Thread.sleep(4000);
         List<WebElement> games = driver.findElements(By.xpath("//div[@id='search_resultsRows']//a//div"));
         actions.moveToElement(games.get(0)).click().build().perform();
+        WebElement price = driver.findElement(By.xpath("//div[@class='game_purchase_price price']"));
+        System.out.println(price.getText());
 
     }
 
