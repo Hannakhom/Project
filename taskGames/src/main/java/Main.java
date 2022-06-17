@@ -12,7 +12,7 @@ import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
@@ -32,8 +32,10 @@ public class Main {
         WebElement buttonSortBy = driver.findElement(By.xpath("//a[@id='sort_by_trigger']"));
         actions.moveToElement(buttonSortBy).click().build().perform();
         WebElement sortByPrice = driver.findElement(By.xpath("//a[@id='Price_DESC']"));
-        List<WebElement> games = driver.findElements(By.xpath("//div[@id='search_resultsRows']//a"));
-        actions.moveToElement(sortByPrice).pause(20).moveToElement(games.get(0)).click().build().perform();
+        actions.moveToElement(sortByPrice).click().build().perform();
+        Thread.sleep(4000);
+        List<WebElement> games = driver.findElements(By.xpath("//div[@id='search_resultsRows']//a//div"));
+        actions.moveToElement(games.get(0)).click().build().perform();
 
     }
 
