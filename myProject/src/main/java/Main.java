@@ -18,7 +18,7 @@ public class Main {
 
         driver.get("https://store.steampowered.com/");
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
         Actions actions = new Actions(driver);
         WebElement categories = driver.findElement(By.xpath("//a[text()='Категории']"));
@@ -32,7 +32,8 @@ public class Main {
         WebElement buttonSortBy = driver.findElement(By.xpath("//a[@id='sort_by_trigger']"));
         actions.moveToElement(buttonSortBy).click().build().perform();
         WebElement sortByPrice = driver.findElement(By.xpath("//a[@id='Price_DESC']"));
-        actions.moveToElement(sortByPrice).click().build().perform();
+        List<WebElement> games = driver.findElements(By.xpath("//div[@id='search_resultsRows']//a"));
+        actions.moveToElement(sortByPrice).pause(20).moveToElement(games.get(0)).click().build().perform();
 
     }
 
