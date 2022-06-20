@@ -15,14 +15,16 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
-
-        driver.get("https://store.steampowered.com/");
-
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
+        try {
+            driver.get("https://store.steampowered.com/");
+            Thread.sleep(3000);
 
         Actions actions = new Actions(driver);
         WebElement categories = driver.findElement(By.xpath("//a[text()='Категории']"));
         actions.moveToElement(categories).build().perform();
+        Thread.sleep(4000);
         WebElement action = driver.findElement(By.xpath("//div[@class='popup_menu_subheader popup_genre_expand_header responsive_hidden']//a[@class='popup_menu_item' and contains(text(),'Экшен')]"));
         actions.moveToElement(action).click().build().perform();
         WebElement newReleases = driver.findElement(By.xpath("//div[contains(text(),'Популярные новинки')]"));
@@ -38,8 +40,11 @@ public class Main {
         actions.moveToElement(games.get(0)).click().build().perform();
         WebElement price = driver.findElement(By.xpath("//div[@class='game_purchase_price price']"));
         System.out.println(price.getText());
-
     }
-
-
+        catch (InterruptedException e){
+        e.printStackTrace();
+    }finally {
+        driver.quit();
+    }
+}
 }
