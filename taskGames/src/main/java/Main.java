@@ -43,8 +43,9 @@ public class Main {
         }
         catch (InterruptedException e){
                e.printStackTrace();
-             }finally {
+        }
+             finally {
                        driver.quit();
+             }
     }
-}
 }
