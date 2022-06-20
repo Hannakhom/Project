@@ -21,30 +21,30 @@ public class Main {
             driver.get("https://store.steampowered.com/");
             Thread.sleep(3000);
 
-        Actions actions = new Actions(driver);
-        WebElement categories = driver.findElement(By.xpath("//a[text()='Категории']"));
-        actions.moveToElement(categories).build().perform();
-        Thread.sleep(4000);
-        WebElement action = driver.findElement(By.xpath("//div[@class='popup_menu_subheader popup_genre_expand_header responsive_hidden']//a[@class='popup_menu_item' and contains(text(),'Экшен')]"));
-        actions.moveToElement(action).click().build().perform();
-        WebElement newReleases = driver.findElement(By.xpath("//div[contains(text(),'Популярные новинки')]"));
-        actions.moveToElement(newReleases).click().build().perform();
-        WebElement buttonAllNewGames = driver.findElement(By.xpath("//span[contains(text(),'Все новинки')]"));
-        actions.moveToElement(buttonAllNewGames).click().build().perform();
-        WebElement buttonSortBy = driver.findElement(By.xpath("//a[@id='sort_by_trigger']"));
-        actions.moveToElement(buttonSortBy).click().build().perform();
-        WebElement sortByPrice = driver.findElement(By.xpath("//a[@id='Price_DESC']"));
-        actions.moveToElement(sortByPrice).click().build().perform();
-        Thread.sleep(4000);
-        List<WebElement> games = driver.findElements(By.xpath("//div[@id='search_resultsRows']//a//div"));
-        actions.moveToElement(games.get(0)).click().build().perform();
-        WebElement price = driver.findElement(By.xpath("//div[@class='game_purchase_price price']"));
-        System.out.println(price.getText());
-    }
+            Actions actions = new Actions(driver);
+            WebElement categories = driver.findElement(By.xpath("//a[text()='Категории']"));
+            actions.moveToElement(categories).build().perform();
+            Thread.sleep(4000);
+            WebElement action = driver.findElement(By.xpath("//div[@class='popup_menu_subheader popup_genre_expand_header responsive_hidden']//a[@class='popup_menu_item' and contains(text(),'Экшен')]"));
+            actions.moveToElement(action).click().build().perform();
+            WebElement newReleases = driver.findElement(By.xpath("//div[contains(text(),'Популярные новинки')]"));
+            actions.moveToElement(newReleases).click().build().perform();
+            WebElement buttonAllNewGames = driver.findElement(By.xpath("//span[contains(text(),'Все новинки')]"));
+            actions.moveToElement(buttonAllNewGames).click().build().perform();
+            WebElement buttonSortBy = driver.findElement(By.xpath("//a[@id='sort_by_trigger']"));
+            actions.moveToElement(buttonSortBy).click().build().perform();
+            WebElement sortByPrice = driver.findElement(By.xpath("//a[@id='Price_DESC']"));
+            actions.moveToElement(sortByPrice).click().build().perform();
+            Thread.sleep(4000);
+            List<WebElement> games = driver.findElements(By.xpath("//div[@id='search_resultsRows']//a//div"));
+            actions.moveToElement(games.get(0)).click().build().perform();
+            WebElement price = driver.findElement(By.xpath("//div[@class='game_purchase_price price']"));
+            System.out.println(price.getText());
+        }
         catch (InterruptedException e){
-        e.printStackTrace();
-    }finally {
-        driver.quit();
+               e.printStackTrace();
+             }finally {
+                       driver.quit();
     }
 }
 }
